@@ -1,0 +1,10 @@
+.player-card {
+  display: flex;
+  align-items: center;
+}
+
+.player-card-1 {
+}
+.player-card-2 {
+  flex-direction: row-reverse;
+}

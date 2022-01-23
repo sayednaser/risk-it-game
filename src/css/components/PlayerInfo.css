@@ -1,0 +1,18 @@
+.player-info {
+}
+
+table {
+  padding: 1rem;
+  border: 0.5rem solid black;
+  border-radius: 0.6rem;
+}
+
+table th {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.col-values {
+  min-width: 10rem;
+  /* background-color: tomato; */
+}

@@ -1,0 +1,26 @@
+.card-avatar {
+  width: fit-content;
+}
+.card-avatar-1 {
+  border-radius: 0 0 0 100%;
+}
+.card-avatar-2 {
+  border-radius: 0 0 100% 0;
+}
+
+.card-avatar-img {
+  display: block;
+  width: 5rem;
+  border: .3rem solid black;
+}
+
+.card-avatar-img-1 {
+  border-right: unset;
+  border-radius: 0 0 0 100%;
+  border-color: green;
+}
+.card-avatar-img-2 {
+  border-left: unset;
+  border-radius: 0 0 100% 0;
+  border-color: red;
+}
