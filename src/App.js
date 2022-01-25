@@ -6,6 +6,7 @@ import Heading from './components/Heading.js'
 import Avatar from './components/Avatar.js'
 import PlayerInfo from './components/PlayerInfo';
 import PlayerCard from './components/PlayerCard';
+import Map from './components/Map';
 function App() {
   const info = {
     Conqured: '50%',
@@ -18,6 +19,7 @@ function App() {
         {/* <Button text='About'/> */}
         {/* <Heading className="heading-main" text="RISK it"/> */}
         <PlayerCard player="2"/>
+        {/* <Map /> */}
       </header>
     </div>
   );

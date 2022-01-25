@@ -8,3 +8,21 @@ const playerToClasses = function(player, mappingTemplate) {
   };
 
 export {playerToClasses}
+
+
+const playerToClasses2 = (player) => {
+  switch (player) {
+    case "1":
+      return {
+        cardAvatar: "card-avatar-1",
+        cardAvatarImg: "card-avatar-img-1",
+      };
+    case "2":
+      return {
+        cardAvatar: "card-avatar-2",
+        cardAvatarImg: "card-avatar-img-2",
+      };
+    default:
+      console.log("Wrong player prop in Avatar.playerToClasses");
+  }
+};
