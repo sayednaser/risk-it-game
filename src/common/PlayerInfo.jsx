@@ -2,8 +2,6 @@ import { capitalize } from "lodash";
 import NextPhaseButton from "../features/game/NextPhaseButton";
 import "./PlayerInfo.css";
 
-
-
 const PlayerInfo = (props) => {
   const { info, player } = props;
 
@@ -25,14 +23,14 @@ const PlayerInfo = (props) => {
         <col className="" />
         <col className="col-values" />
       </colgroup>
-      <tbody>{infoJsx}
-      <tr>
-        <th>Phase:</th>
-        <td>
-      <NextPhaseButton player={player} />
-
-        </td>
-      </tr>
+      <tbody>
+        {infoJsx}
+        <tr>
+          <th>Phase:</th>
+          <td>
+            <NextPhaseButton player={player} />
+          </td>
+        </tr>
       </tbody>
     </table>
   );

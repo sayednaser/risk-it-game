@@ -1,31 +1,24 @@
 .fortify-controller {
-    margin-left: 1rem;
+  margin-left: 1rem;
 
-    align-self: center;
-    
-
+  align-self: center;
 }
-.move-troops-controller{
-
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.move-troops-controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fortify-controller-1 {
-    margin-right: auto;
-
+  margin-right: auto;
 }
 .fortify-controller-2 {
-margin-left: auto;
-
+  margin-left: auto;
 }
 
 .btn-fortify {
-    padding: 2px;
-    border-radius: 4px;
-    vertical-align: middle;
+  padding: 2px;
+  border-radius: 4px;
+  vertical-align: middle;
 }

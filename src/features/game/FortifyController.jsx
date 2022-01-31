@@ -1,10 +1,15 @@
-import './FortifyController.css'
+import "./FortifyController.css";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../common/Button";
 import Slider from "../../common/Slider";
-import { fortifyPerformed, selectCurrentPlayer, selectfortifyLimit, selectFortifyReady } from "./gameSlice";
+import {
+  fortifyPerformed,
+  selectCurrentPlayer,
+  selectfortifyLimit,
+  selectFortifyReady,
+} from "./gameSlice";
 
 const MoveTroopsController = (props) => {
   const { min, max } = props;
@@ -12,7 +17,7 @@ const MoveTroopsController = (props) => {
   const [troopsCount, setTroopsCount] = useState(0);
 
   const handleClick = (e) => {
-      console.log(troopsCount)
+    console.log(troopsCount);
     dispatch(fortifyPerformed(troopsCount));
   };
 
@@ -24,7 +29,11 @@ const MoveTroopsController = (props) => {
         state={troopsCount}
         setState={setTroopsCount}
       />
-      <Button className="btn btn-inline btn-fortify" onClick={handleClick} text="Move" />
+      <Button
+        className="btn btn-inline btn-fortify"
+        onClick={handleClick}
+        text="Move"
+      />
     </div>
   );
 };

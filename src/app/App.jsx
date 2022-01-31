@@ -1,15 +1,9 @@
-import {
-  BrowserRouter,
-  Link,
-  MemoryRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import MainMenuButton from "../features/settings/MainMenuButton";
 
 import GamePage from "./GamePage";
 import MainMenuPage from "./HomePage";
+
 function App() {
   const info = {
     Conqured: "50%",
@@ -18,19 +12,14 @@ function App() {
   };
 
   return (
-      <MemoryRouter>
-    <div className="App">
+    <MemoryRouter>
+      <div className="App">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <MainMenuPage />
-            }
-          />
+          <Route path="/" element={<MainMenuPage />} />
           <Route path="game" element={<GamePage />} />
         </Routes>
-    </div>
-      </MemoryRouter>
+      </div>
+    </MemoryRouter>
   );
 }
 

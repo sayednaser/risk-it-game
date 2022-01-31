@@ -15,8 +15,8 @@ const NextPhaseButton = (props) => {
   const currentPlayer = useSelector(selectCurrentPlayer);
 
   let text = player === currentPlayer ? capitalize(currentPhase) : " ";
-  if (text === 'Initial' || text === 'Initial2') {
-    text = 'Start';
+  if (text === "Initial" || text === "Initial2") {
+    text = "Start";
   }
   const disabled =
     ["initial", "initial2"].includes(currentPhase) || player !== currentPlayer;

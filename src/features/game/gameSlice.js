@@ -32,7 +32,6 @@ import {
   turnStartedUtil,
 } from "./gamelogic";
 
-
 const initialState = {
   players: PLAYERS_INIT_STATE,
   initial: INIT_START_PHASE_STATE,
@@ -341,7 +340,7 @@ export const selectisFirstAttack = (state) => {
 };
 
 export const selectisLastAttack = (state) => {
-  return isOwner(state.game, state.game.turn.attack.attackTo)
+  return isOwner(state.game, state.game.turn.attack.attackTo);
 };
 
 export const selectCurrentPlayer = (state) => {
@@ -349,18 +348,18 @@ export const selectCurrentPlayer = (state) => {
 };
 
 export const selectAttackToPossible = (state) => {
-  return getAttackToChoices(state.game, state.game.turn.attack.attackFrom)
+  return getAttackToChoices(state.game, state.game.turn.attack.attackFrom);
 };
 
 export const selectAttackFromPossible = (state) => {
-  return getAttackFromChoices(state.game)
+  return getAttackFromChoices(state.game);
 };
 
 export const selectFortifyFromPossible = (state) => {
-  return getFortifyFromChoices(state.game)
+  return getFortifyFromChoices(state.game);
 };
 export const selectFortifyToPossible = (state) => {
-  return getFortifyToChoices(state.game, state.game.turn.fortify.fortifyFrom)
+  return getFortifyToChoices(state.game, state.game.turn.fortify.fortifyFrom);
 };
 
 export const selectFortifyReady = (state) => {
@@ -370,20 +369,20 @@ export const selectFortifyReady = (state) => {
 };
 
 export const selectOwnTerritories = (state) => {
-  return getOwnTerritories(state.game)
+  return getOwnTerritories(state.game);
 };
 export const selectTerritories = (state, playerId) => {
   return getTerritories(state.game, playerId);
 };
 
 export const selectTroopsCount = (state, playerId) => {
-  const reducer = (totalTroops, territoryId) => totalTroops + state.game.map.entities[territoryId].troopsCount;
-  return getTerritories(state.game, playerId).reduce(reducer, 0)
-}
-
+  const reducer = (totalTroops, territoryId) =>
+    totalTroops + state.game.map.entities[territoryId].troopsCount;
+  return getTerritories(state.game, playerId).reduce(reducer, 0);
+};
 
 export const selectNeutralTerritories = (state) => {
   return state.game.map.ids.filter((id) => {
-    return hasNoOwner(state.game, id)
+    return hasNoOwner(state.game, id);
   });
 };

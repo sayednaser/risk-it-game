@@ -245,7 +245,7 @@ const usaMapTable = {
       id: "wy",
       owner: "",
       troopsCount: 0,
-      neighbours: ['mt', "id", "ut", 'co', 'sd', 'ne'],
+      neighbours: ["mt", "id", "ut", "co", "sd", "ne"],
     },
     pr: {
       id: "pr",
@@ -258,4 +258,4 @@ const usaMapTable = {
 
 usaMapTable.ids = Object.keys(usaMapTable.entities).slice();
 
-export {usaMapTable};
+export { usaMapTable };

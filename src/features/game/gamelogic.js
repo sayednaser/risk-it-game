@@ -44,9 +44,9 @@ export const INIT_POST_START_PHASE_STATE = {
 };
 
 export const INIT_DRAFT_PHASE_STATE = {
-    reinforcements: 0,
-    selectedTerritory: NOT_SELECTED,
-}
+  reinforcements: 0,
+  selectedTerritory: NOT_SELECTED,
+};
 
 export const INIT_ATTACK_PHASE_STATE = {
   attackFrom: NOT_SELECTED,
@@ -59,8 +59,6 @@ export const INIT_FORTIFY_PHASE_STATE = {
   fortifyFrom: NOT_SELECTED,
   fortifyTo: NOT_SELECTED,
 };
-
-
 
 export const togglePlayer = function (state) {
   return (
@@ -86,13 +84,14 @@ export const isDraftFinish = function (state) {
 };
 
 export const getOwnTerritories = (state) => {
-    return state.map.ids.filter((id) => isOwner(state, id));
+  return state.map.ids.filter((id) => isOwner(state, id));
 };
 
 export const getTerritories = function (state, playerId) {
-    return state.map.ids.filter((id) => state.map.entities[id]?.owner === playerId);
-    
-}
+  return state.map.ids.filter(
+    (id) => state.map.entities[id]?.owner === playerId
+  );
+};
 
 const calculateReinforcements = function (territoriesCount) {
   return Math.max(Math.floor(territoriesCount / 3), 3);
@@ -119,7 +118,7 @@ export const getAttackToChoices = function (state, attackFrom) {
    */
 
   if (!attackFrom) {
-      return [];
+    return [];
   }
 
   return state.map.ids.filter((id) => {
@@ -150,87 +149,81 @@ export const getAttackFromChoices = (state) => {
 };
 
 export const fortifyToPossible = (state, fortifyFrom) => {
-    if (!fortifyFrom) {
-      return [];
+  if (!fortifyFrom) {
+    return [];
+  }
+  const ownTerritoriesIds = state.map.ids.filter(
+    (id) => state.map.entities[id].owner === state.turn.player
+  );
+  const ownTerritories = _.pick(state.map.entities, ownTerritoriesIds);
+  const ownTerritoriesGraph = buildGraph(ownTerritories);
+  return getConnectedTo(fortifyFrom, ownTerritoriesGraph);
+};
+
+const buildGraph = function (map) {
+  const graph = new graphlib.Graph({ directed: false });
+
+  Object.keys(map).forEach((key) => {
+    graph.setNode(key, key);
+  });
+  Object.entries(map).forEach(([key, value]) => {
+    value.neighbours.forEach((neighbour) => {
+      if (Object.keys(map).includes(neighbour))
+        graph.setEdge(key, neighbour, `${key} ${neighbour}`);
+    });
+  });
+
+  return graph;
+};
+
+const getConnectedTo = function (node, graph) {
+  const cc = graphlib.alg.components(graph);
+
+  let connectedTo;
+
+  for (let component of cc) {
+    for (let key of component) {
+      if (key === node) {
+        connectedTo = _.without(component, node);
+        return connectedTo;
+      }
     }
-    const ownTerritoriesIds = state.map.ids.filter(
-      (id) => state.map.entities[id].owner === state.turn.player
+  }
+};
+
+export const getFortifyToChoices = function (state, fortifyFrom) {
+  /* Get the territories I can fortify to
+   * Criteria:
+   * - I own it.
+   * - connected to fortify from.
+   */
+  if (!fortifyFrom) {
+    return [];
+  }
+
+  const ownTerritoriesIds = state.map.ids.filter((id) => isOwner(state, id));
+  const ownTerritories = _.pick(state.map.entities, ownTerritoriesIds);
+  const ownTerritoriesGraph = buildGraph(ownTerritories);
+  return getConnectedTo(fortifyFrom, ownTerritoriesGraph);
+};
+
+export const getFortifyFromChoices = (state) => {
+  /* Get the territories I can fortify from
+   * Criteria:
+   * - I own it.
+   * - Has more than 1 troop.
+   * - Has connected territories
+   */
+
+  return state.map.ids.filter((id) => {
+    const territory = state.map.entities[id];
+    return (
+      isOwner(state, id) &&
+      territory.troopsCount > 1 &&
+      getFortifyToChoices(state, territory.id).length > 0
     );
-    const ownTerritories = _.pick(state.map.entities, ownTerritoriesIds);
-    const ownTerritoriesGraph = buildGraph(ownTerritories);
-    return getConnectedTo(fortifyFrom, ownTerritoriesGraph);
-  };
-
-
-
-  const buildGraph = function (map) {
-    const graph = new graphlib.Graph({ directed: false });
-  
-    Object.keys(map).forEach((key) => {
-      graph.setNode(key, key);
-    });
-    Object.entries(map).forEach(([key, value]) => {
-      value.neighbours.forEach((neighbour) => {
-        if (Object.keys(map).includes(neighbour))
-          graph.setEdge(key, neighbour, `${key} ${neighbour}`);
-      });
-    });
-  
-    return graph;
-  };
-  
-  const getConnectedTo = function (node, graph) {
-    const cc = graphlib.alg.components(graph);
-  
-    let connectedTo;
-  
-    for (let component of cc) {
-      for (let key of component) {
-        if (key === node) {
-          connectedTo = _.without(component, node);
-          return connectedTo;
-        }
-      }
-    }
-  };
-
-  export const getFortifyToChoices = function (state, fortifyFrom) {
-    /* Get the territories I can fortify to
-     * Criteria:
-     * - I own it.
-     * - connected to fortify from.
-     */
-    if (!fortifyFrom) {
-        return [];
-      }
-
-      const ownTerritoriesIds = state.map.ids.filter(
-        (id) => isOwner(state, id)
-      );
-      const ownTerritories = _.pick(state.map.entities, ownTerritoriesIds);
-      const ownTerritoriesGraph = buildGraph(ownTerritories);
-    return getConnectedTo(fortifyFrom, ownTerritoriesGraph);
-
-  };
-  
-
-export const getFortifyFromChoices= (state) => {
-    /* Get the territories I can fortify from
-     * Criteria:
-     * - I own it.
-     * - Has more than 1 troop.
-     * - Has connected territories
-     */
-  
-    return state.map.ids.filter((id) => {
-      const territory = state.map.entities[id];
-      return (
-        isOwner(state, id) &&
-        territory.troopsCount > 1 &&
-        getFortifyToChoices(state, territory.id).length > 0
-      );
-    });
-  };
+  });
+};
 
 const ATTACK_SYMBOL = "attack";
 const DEFENSE_SYMBOL = "defense";
@@ -260,10 +253,9 @@ export const getLosses = function (state) {
 };
 
 export const getNextPhase = function (state) {
-    const phases = [DRAFT_PHASE, ATTACK_PHASE, FORTIFY_PHASE];
-  
-    const index = phases.findIndex((phase) => phase === state.turn.currentPhase);
-  
-    return phases[(index + 1) % phases.length];
-  };
-  
+  const phases = [DRAFT_PHASE, ATTACK_PHASE, FORTIFY_PHASE];
+
+  const index = phases.findIndex((phase) => phase === state.turn.currentPhase);
+
+  return phases[(index + 1) % phases.length];
+};

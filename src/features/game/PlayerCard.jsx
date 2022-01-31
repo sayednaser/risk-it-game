@@ -4,12 +4,14 @@ import PlayerInfo from "../../common/PlayerInfo";
 
 import { playerToClasses } from "../../utils/utils";
 import { useSelector } from "react-redux";
-import NextPhaseButton from "./NextPhaseButton";
-import {selectCurrentPlayer, selectTerritories, selectTroopsCount } from "./gameSlice";
+import {
+  selectCurrentPlayer,
+  selectTerritories,
+  selectTroopsCount,
+} from "./gameSlice";
 
 const PlayerCard = (props) => {
   const { player } = props;
-
 
   const currentPlayer = useSelector(selectCurrentPlayer);
   const territoriesCount = useSelector(
@@ -19,10 +21,16 @@ const PlayerCard = (props) => {
   const classes = playerToClasses(player, {
     playerCard: "player-card",
   });
-  const reinforcementsCount = useSelector(state => state.game.turn.draft.reinforcements)
+  const reinforcementsCount = useSelector(
+    (state) => state.game.turn.draft.reinforcements
+  );
   const info = {
     Conqured: `${Math.round((territoriesCount / 42) * 100)}%`,
-    Army: `${troopsCount}${(reinforcementsCount && currentPlayer === player) ? ` (+${reinforcementsCount})` : ''}`,
+    Army: `${troopsCount}${
+      reinforcementsCount && currentPlayer === player
+        ? ` (+${reinforcementsCount})`
+        : ""
+    }`,
   };
 
   return (

@@ -23,32 +23,30 @@ input[type="range"]::-moz-range-track {
 /***** Thumb Styles *****/
 /***** Chrome, Safari, Opera, and Edge Chromium *****/
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    margin-top: -.5rem; /* Centers thumb on the track */
-    background-color: #000;
-    height: 2rem;
-    width: 1rem;    
- }
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -0.5rem; /* Centers thumb on the track */
+  background-color: #000;
+  height: 2rem;
+  width: 1rem;
+}
 
- /***** Thumb Styles *****/
+/***** Thumb Styles *****/
 /***** Firefox *****/
 input[type="range"]::-moz-range-thumb {
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0; /*Removes default border-radius that FF applies*/
-    background-color: #000;
-    height: 2rem;
-    width: 1rem;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0; /*Removes default border-radius that FF applies*/
+  background-color: #000;
+  height: 2rem;
+  width: 1rem;
 }
 
 /***** Focus Styles *****/
 /* Removes default focus */
 input[type="range"]:focus {
-    outline: none;
-  }
-
+  outline: none;
+}
 
 .slider-value {
-    text-align: center;
+  text-align: center;
 }
-  

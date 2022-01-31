@@ -1,18 +1,17 @@
 .game-page {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .game-page-header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 .game-page-map {
-    flex: 1 1 auto;
-    align-self: center;
+  flex: 1 1 auto;
+  align-self: center;
 }
-
