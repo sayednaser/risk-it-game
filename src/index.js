@@ -5,6 +5,7 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import './fonts/Bruno Ace.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,5 @@
 import Game from "../features/game/Game";
 import PlayerCard from "../features/game/PlayerCard";
-import PlayerCard2 from "../features/game/PlayerCard2";
 import PlayerControl from "../features/game/PlayerController";
 
 import "./GamePage.css"
