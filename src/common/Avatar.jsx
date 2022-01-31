@@ -1,4 +1,4 @@
-import "../css/components/Avatar.css";
+import "./Avatar.css";
 
 const playerToClasses = (player, mappingTemplate) => {
   const mapping = {};

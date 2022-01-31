@@ -1,4 +1,4 @@
-import "../css/components/Heading.css";
+import "./Heading.css";
 
 const Heading = (props) => {
   const { className, text } = props;

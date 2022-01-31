@@ -1,11 +1,11 @@
-import "../css/components/PlayerInfo.css";
+import { capitalize } from "lodash";
+import NextPhaseButton from "../features/game/NextPhaseButton";
+import "./PlayerInfo.css";
 
-const capitalize = function (str) {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-};
+
 
 const PlayerInfo = (props) => {
-  const { info } = props;
+  const { info, player } = props;
 
   const infoArray = Object.keys(info).map((key) => {
     return { [capitalize(key)]: info[key] };
@@ -20,12 +20,20 @@ const PlayerInfo = (props) => {
   });
 
   return (
-    <table className="player-info">
+    <table className={`player-info player-info-${player}`}>
       <colgroup>
         <col className="" />
         <col className="col-values" />
       </colgroup>
-      <tbody>{infoJsx}</tbody>
+      <tbody>{infoJsx}
+      <tr>
+        <th>Phase:</th>
+        <td>
+      <NextPhaseButton player={player} />
+
+        </td>
+      </tr>
+      </tbody>
     </table>
   );
 };

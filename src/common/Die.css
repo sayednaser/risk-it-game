@@ -1,0 +1,7 @@
+.die-invisible {
+    visibility: hidden;
+}
+
+.die-opaque {
+    opacity: .3;
+}

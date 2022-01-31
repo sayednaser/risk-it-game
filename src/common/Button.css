@@ -1,8 +1,18 @@
-.btn-main {
+.btn {
+  border: none;
   display: block;
-
+  font-family: inherit;
   font-weight: bold;
-  font-size: 4rem;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.btn-main {
+  
+  font-size: 3.2rem;
   text-align: center;
   text-transform: uppercase;
 
@@ -32,4 +42,18 @@
   position: relative;
   top: 0.5rem;
   left: 0.5rem;
+}
+
+.btn-inline {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+
+}
+
+.btn-next-phase {
+  padding: 2px;
+  border-radius: 4px;
+  vertical-align: middle;
+  width: 100%;
 }

@@ -1,0 +1,32 @@
+.heading-main {
+    margin-bottom: 5%;
+    margin-top: 5%;
+
+}
+
+.home-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.main-menu {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.btn-about {
+    margin-top: auto;
+}
+
+.home-page-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

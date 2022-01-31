@@ -1,0 +1,54 @@
+.dice-container, .dice-container-readonly {
+    display: flex;
+    min-width: 15rem;
+}
+.dice-container-2, .dice-container-readonly-2 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.dices-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dices-container-1 {
+    margin-left: 1rem;
+    margin-right: auto;
+}
+.dices-container-2 {
+margin-left: auto;
+margin-right: 1rem;
+}
+
+.dice-container-1 .die, .dice-container-readonly-1 .die {
+    margin-right: .5rem;
+}
+.dice-container-2 .die, .dice-container-readonly-2 .die {
+    margin-left: .5rem;
+}
+
+.attack-controller {
+    display: flex;
+    justify-content: center;
+
+    flex: 1 1 auto;
+}
+
+.attack-controller-1 {
+
+}
+.attack-controller-2 {
+    flex-direction: row-reverse;
+}
+
+.btn-attack {
+    align-self: center;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.btn-attack:disabled {
+    opacity: .2;
+}
