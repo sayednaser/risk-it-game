@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/risk-it-game/static/css/main.957147a8.css",
-    "main.js": "/risk-it-game/static/js/main.6fcf93d7.js",
+    "main.css": "/risk-it-game/static/css/main.c6a2be7c.css",
+    "main.js": "/risk-it-game/static/js/main.e84c0b96.js",
     "static/js/787.1155ec17.chunk.js": "/risk-it-game/static/js/787.1155ec17.chunk.js",
     "static/media/bg.jpg": "/risk-it-game/static/media/bg.cabf4700f380095099d3.jpg",
     "static/media/Bruno Ace.ttf": "/risk-it-game/static/media/Bruno Ace.1d2d4719616950868d4b.ttf",
@@ -12,12 +12,12 @@
     "static/media/die-3.svg": "/risk-it-game/static/media/die-3.1b2dec71de28cf0b6880663fa55bc5ae.svg",
     "static/media/die-2.svg": "/risk-it-game/static/media/die-2.2cf8b56728b42169666e148e8c40986d.svg",
     "static/media/die-1.svg": "/risk-it-game/static/media/die-1.028f319fa36fbcdec3983db5f39dea59.svg",
-    "main.957147a8.css.map": "/risk-it-game/static/css/main.957147a8.css.map",
-    "main.6fcf93d7.js.map": "/risk-it-game/static/js/main.6fcf93d7.js.map",
+    "main.c6a2be7c.css.map": "/risk-it-game/static/css/main.c6a2be7c.css.map",
+    "main.e84c0b96.js.map": "/risk-it-game/static/js/main.e84c0b96.js.map",
     "787.1155ec17.chunk.js.map": "/risk-it-game/static/js/787.1155ec17.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.957147a8.css",
-    "static/js/main.6fcf93d7.js"
+    "static/css/main.c6a2be7c.css",
+    "static/js/main.e84c0b96.js"
   ]
 }
