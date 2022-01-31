@@ -1,0 +1,10 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="die-5">
+<circle id="Ellipse 31" cx="410" cy="410" r="50" fill="black"/>
+<circle id="Ellipse 35" cx="300" cy="300" r="50" fill="black"/>
+<circle id="Ellipse 32" cx="190" cy="190" r="50" fill="black"/>
+<circle id="Ellipse 33" cx="190" cy="410" r="50" fill="black"/>
+<circle id="Ellipse 34" cx="410" cy="190" r="50" fill="black"/>
+<rect id="die" x="25" y="25" width="550" height="550" rx="195" stroke="black" stroke-width="50"/>
+</g>
+</svg>
